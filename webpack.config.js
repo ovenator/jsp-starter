@@ -1,5 +1,6 @@
 const path = require("path")
 
+const outputTarget = process.env.NODE_ENV === 'production' ? path.resolve(__dirname, "src/main/resources/static/js") : path.resolve(__dirname, "target/classes/static/js");
 
 module.exports = {
   entry: {
@@ -8,8 +9,7 @@ module.exports = {
 
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "target/classes/static/js")
-    // path: path.resolve(__dirname, "src/main/resources/static/js")
+    path: outputTarget
   },
 
   mode: "production",
